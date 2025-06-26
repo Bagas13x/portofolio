@@ -14,6 +14,7 @@ import ScrollFloat from './components/ScrollFloat/ScrollFloat';
 import ScrambledText from './components/ScrambledText/ScrambledText';
 import TiltedCard from './components/TiltedCard/TiltedCard';
 import CircularGallery from './components/CircularGallery/CircularGallery';
+import Particles from "./components/Particles/Particles";
 
 export default function Home() {
   const [isAllowed, setIsAllowed] = useState(true);
@@ -130,125 +131,142 @@ export default function Home() {
 
       <ScrollVelocity texts={['XXX - XXX - XXX -']} />
 
-      <section className="py-10 flex justify-center items-center">
-        <ScrollFloat
-          animationDuration={4}
-          ease="back.inOut(2)"
-          scrollStart="center bottom+=50%"
-          scrollEnd="bottom bottom-=40%"
-          stagger={0.1}
-          textClassName="text-7xl font-semibold text-white"
-        >
-          SIAPA SAYA
-        </ScrollFloat>
-      </section>
+ <div className="relative w-full min-h-screen">
+  {/* Particles sebagai background seluruh area */}
+  <div className="absolute inset-0 w-full h-full z-0">
+    <Particles
+      particleColors={['#ffffff', '#ffffff']}
+      particleCount={200}
+      particleSpread={10}
+      speed={0.1}
+      particleBaseSize={95}
+      moveParticlesOnHover={true}
+      alphaParticles={false}
+      disableRotation={true}
+    />
+  </div>
 
-      <div className="-mt-10 px-4">
-        <ScrambledText
-          className="scrambled-text-demo text-lg max-w-4xl mx-auto"
-          radius={100}
-          duration={1.2}
-          speed={0.5}
-          scrambleChars=".:"
-        >
-          Hai, Saya [Bagas] <br /><br />
-          Saya adalah seorang siswa di SMKN 2 Kota Bekasi, mengambil Jurusan Rekayasa Perangkat Lunak (RPL). Saya adalah pribadi yang suka berinteraksi, terbuka dengan hal-hal baru, dan punya semangat tinggi untuk terus belajar dan berkembang.
-          Saya juga punya hobi dalam Dunia Bisnis. Saat ini, saya sedang fokus membangun berbagai peluang usaha salah satunya adalah Bisnis Kelas Private dengan materi pembelajaran yang praktis, Layanan Digital masih banyak lagi, berikut Usaha Bisnis saya: <br /><br />
-        </ScrambledText>
-      </div>
+  {/* Semua konten di atas particles */}
+  <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-10 space-y-10">
+    <ScrollFloat
+      animationDuration={4}
+      ease="back.inOut(2)"
+      scrollStart="center bottom+=50%"
+      scrollEnd="bottom bottom-=40%"
+      stagger={0.1}
+      textClassName="text-7xl font-semibold text-white"
+    >
+      SIAPA SAYA
+    </ScrollFloat>
 
-      <div className="flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {/* TiltedCard list */}
-          <a href="https://wa.me/6281319865384?text=Halo!%20Saya%20dari%20Website%20Portofolio%20anda,%20apa%20benar%20anda%20menjual%20kelas%20private?" target="_blank" rel="noopener noreferrer">
-            <TiltedCard
-              imageSrc="./bisnis.png"
-              altText="Kelas Bisnis"
-              captionText="DayCohere"
-              containerHeight="200px"
-              containerWidth="200px"
-              imageHeight="200px"
-              imageWidth="200px"
-              rotateAmplitude={12}
-              scaleOnHover={1.1}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <p className="text-sm text-center px-2 py-1 rounded-[5px] bg-white/20 backdrop-blur-md text-black font-bold">
-                  Bisnis Kelas - Private
-                </p>
-              }
-            />
-          </a>
-          <a href="https://wa.me/6281319865384?text=Halo!%20Saya%20dari%20Website%20Portofolio%20anda,%20apa%20benar%20anda%20menjual%20Akun%20Premium?" target="_blank" rel="noopener noreferrer">
-            <TiltedCard
-              imageSrc="./list.png"
-              altText="4 Prelist"
-              captionText="Akun Premium"
-              containerHeight="200px"
-              containerWidth="200px"
-              imageHeight="200px"
-              imageWidth="200px"
-              rotateAmplitude={12}
-              scaleOnHover={1.1}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <p className="text-sm text-center px-2 py-1 rounded-[5px] bg-white/20 backdrop-blur-md text-black font-bold">
-                  4 Prelist
-                </p>
-              }
-            />
-          </a>
-          <a href="https://wa.me/6281319865384?text=Halo!%20Saya%20dari%20Website%20Portofolio%20anda,%20apa%20benar%20anda%20membuka%20Kelas%20Freelance?" target="_blank" rel="noopener noreferrer">
-            <TiltedCard
-              imageSrc="./freelance.png"
-              altText="Freelance"
-              captionText="DayCohere"
-              containerHeight="200px"
-              containerWidth="200px"
-              imageHeight="200px"
-              imageWidth="200px"
-              rotateAmplitude={12}
-              scaleOnHover={1.1}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <p className="text-sm text-center px-2 py-1 rounded-[5px] bg-white/20 backdrop-blur-md text-black font-bold">
-                  Freelance
-                </p>
-              }
-            />
-          </a>
-          <a href="https://wa.me/6281319865384?text=Halo!%20Saya%20dari%20Website%20Portofolio%20anda,%20apa%20benar%20anda%20menjual%20Jasa?" target="_blank" rel="noopener noreferrer">
-            <TiltedCard
-              imageSrc="./jasa.png"
-              altText="Jasa"
-              captionText="DayCohere"
-              containerHeight="200px"
-              containerWidth="200px"
-              imageHeight="200px"
-              imageWidth="200px"
-              rotateAmplitude={12}
-              scaleOnHover={1.1}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <p className="text-sm text-center px-2 py-1 rounded-[5px] bg-white/20 backdrop-blur-md text-black font-bold">
-                  Jasa
-                </p>
-              }
-            />
-          </a>
-        </div>
+    <ScrambledText
+      className="scrambled-text-demo text-lg max-w-4xl text-white"
+      radius={100}
+      duration={1.2}
+      speed={0.5}
+      scrambleChars=".:"
+    >
+      Hai, Saya [Bagas] <br /><br />
+      Saya adalah seorang siswa di SMKN 2 Kota Bekasi, mengambil Jurusan Rekayasa Perangkat Lunak (RPL). 
+      Saya adalah pribadi yang suka berinteraksi, terbuka dengan hal-hal baru, dan punya semangat tinggi untuk terus belajar dan berkembang.
+      Saya juga punya hobi dalam Dunia Bisnis. Saat ini, saya sedang fokus membangun berbagai peluang usaha salah satunya adalah 
+      Bisnis Kelas Private dengan materi pembelajaran yang praktis, Layanan Digital masih banyak lagi, berikut Usaha Bisnis saya:
+    </ScrambledText>
+
+    {/* TiltedCard Grid */}
+    <div className="flex justify-center w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+        <a href="https://wa.me/6281319865384?text=Halo!%20Saya%20dari%20Website%20Portofolio%20anda,%20apa%20benar%20anda%20menjual%20kelas%20private?" target="_blank" rel="noopener noreferrer">
+          <TiltedCard
+            imageSrc="./bisnis.png"
+            altText="Kelas Bisnis"
+            captionText="DayCohere"
+            containerHeight="200px"
+            containerWidth="200px"
+            imageHeight="200px"
+            imageWidth="200px"
+            rotateAmplitude={12}
+            scaleOnHover={1.1}
+            showMobileWarning={false}
+            showTooltip={true}
+            displayOverlayContent={true}
+            overlayContent={
+              <p className="text-sm text-center px-2 py-1 rounded-[5px] bg-white/20 backdrop-blur-md text-black font-bold">
+                Bisnis Kelas - Private
+              </p>
+            }
+          />
+        </a>
+        <a href="https://wa.me/6281319865384?text=Halo!%20Saya%20dari%20Website%20Portofolio%20anda,%20apa%20benar%20anda%20menjual%20Akun%20Premium?" target="_blank" rel="noopener noreferrer">
+          <TiltedCard
+            imageSrc="./list.png"
+            altText="4 Prelist"
+            captionText="Akun Premium"
+            containerHeight="200px"
+            containerWidth="200px"
+            imageHeight="200px"
+            imageWidth="200px"
+            rotateAmplitude={12}
+            scaleOnHover={1.1}
+            showMobileWarning={false}
+            showTooltip={true}
+            displayOverlayContent={true}
+            overlayContent={
+              <p className="text-sm text-center px-2 py-1 rounded-[5px] bg-white/20 backdrop-blur-md text-black font-bold">
+                4 Prelist
+              </p>
+            }
+          />
+        </a>
+        <a href="https://wa.me/6281319865384?text=Halo!%20Saya%20dari%20Website%20Portofolio%20anda,%20apa%20benar%20anda%20membuka%20Kelas%20Freelance?" target="_blank" rel="noopener noreferrer">
+          <TiltedCard
+            imageSrc="./freelance.png"
+            altText="Freelance"
+            captionText="DayCohere"
+            containerHeight="200px"
+            containerWidth="200px"
+            imageHeight="200px"
+            imageWidth="200px"
+            rotateAmplitude={12}
+            scaleOnHover={1.1}
+            showMobileWarning={false}
+            showTooltip={true}
+            displayOverlayContent={true}
+            overlayContent={
+              <p className="text-sm text-center px-2 py-1 rounded-[5px] bg-white/20 backdrop-blur-md text-black font-bold">
+                Freelance
+              </p>
+            }
+          />
+        </a>
+        <a href="https://wa.me/6281319865384?text=Halo!%20Saya%20dari%20Website%20Portofolio%20anda,%20apa%20benar%20anda%20menjual%20Jasa?" target="_blank" rel="noopener noreferrer">
+          <TiltedCard
+            imageSrc="./jasa.png"
+            altText="Jasa"
+            captionText="DayCohere"
+            containerHeight="200px"
+            containerWidth="200px"
+            imageHeight="200px"
+            imageWidth="200px"
+            rotateAmplitude={12}
+            scaleOnHover={1.1}
+            showMobileWarning={false}
+            showTooltip={true}
+            displayOverlayContent={true}
+            overlayContent={
+              <p className="text-sm text-center px-2 py-1 rounded-[5px] bg-white/20 backdrop-blur-md text-black font-bold">
+                Jasa
+              </p>
+            }
+          />
+        </a>
       </div>
+    </div>
+  </div>
+</div>
 
       <div>
-        <ScrollVelocity texts={['xxx - xxx - xxx -', 'PROJEK']} />
+        <ScrollVelocity texts={['', 'PROJEK']} />
       </div>
 
       <div style={{ height: '600px', position: 'relative' }}>
