@@ -46,8 +46,8 @@ export default function Home() {
       <div className="flex flex-col justify-center items-center min-h-screen bg-black text-white p-4 text-center">
         <h1 className="text-3xl font-bold mb-4">Akses Ditolak</h1>
         <p className="text-lg">
-          Website ini hanya dapat dibuka menggunakan <strong>Situs Desktop</strong>, 
-          atau <strong>Mode Landscape</strong> di browser Anda.
+          Website ini hanya dapat dibuka menggunakan <strong>Mode Landscape</strong>, 
+          atau <strong>Situs Desktop</strong> di browser Anda.
           <br /><br />
           Silakan ubah Orientasi Layar atau Gunakan Situs Desktop untuk memaksimalkan Performa Website.
         </p>
