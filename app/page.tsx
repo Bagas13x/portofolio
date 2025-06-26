@@ -107,18 +107,18 @@ export default function Home() {
                 <div className="flex flex-col items-start">
                   <SplitText
                     text="R BAGAS T.P"
-                    className="text-6xl font-semibold text-start"
+                    className="text-4xl font-semibold text-start"
                     delay={50}
                     animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
                     animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                     threshold={0.2}
-                    rootMargin="-50px"
+                    rootMargin="-40px"
                   />
                 </div>
 
                 <BlurText
                   text="Saya seorang Pelajar aktif yang sedang mengembangkan keterampilan di bidang Front-end Development. Saya memiliki pengalaman terbuka untuk Kelas Privat di Bidang Coding, Bisnis, dan Pengembangan lainnya."
-                  delay={75}
+                  delay={90}
                   animateBy="words"
                   direction="top"
                   className="text-xl mb-8"
