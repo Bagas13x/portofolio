@@ -15,39 +15,39 @@ import Particles from "./components/Particles/Particles";
 export default function Home() {
   const [isAllowed, setIsAllowed] = useState(true);
 
-  useEffect(() => {
-    const checkScreen = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+  // useEffect(() => {
+  //   const checkScreen = () => {
+  //     const width = window.innerWidth;
+  //     const height = window.innerHeight;
 
-      if (width >= 768 || width > height) {
-        setIsAllowed(true);
-      } else {
-        setIsAllowed(false);
-      }
-    };
+  //     if (width >= 768 || width > height) {
+  //       setIsAllowed(true);
+  //     } else {
+  //       setIsAllowed(false);
+  //     }
+  //   };
 
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    window.addEventListener("orientationchange", checkScreen);
+  //   checkScreen();
+  //   window.addEventListener("resize", checkScreen);
+  //   window.addEventListener("orientationchange", checkScreen);
 
-    return () => {
-      window.removeEventListener("resize", checkScreen);
-      window.removeEventListener("orientationchange", checkScreen);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", checkScreen);
+  //     window.removeEventListener("orientationchange", checkScreen);
+  //   };
+  // }, []);
 
-  if (!isAllowed) {
-    return (
-      <div className="flex flex-col justify-center items-center min-h-screen bg-black text-white p-4 text-center">
-        <h1 className="text-3xl font-bold mb-4">Akses Ditolak</h1>
-        <p className="text-lg">
-          Website ini hanya dapat dibuka menggunakan <strong>Mode Landscape</strong>,
-          atau <strong>Situs Desktop</strong> di browser Anda.
-        </p>
-      </div>
-    );
-  }
+  // if (!isAllowed) {
+  //   return (
+  //     <div className="flex flex-col justify-center items-center min-h-screen bg-black text-white p-4 text-center">
+  //       <h1 className="text-3xl font-bold mb-4">Akses Ditolak</h1>
+  //       <p className="text-lg">
+  //         Website ini hanya dapat dibuka menggunakan <strong>Mode Landscape</strong>,
+  //         atau <strong>Situs Desktop</strong> di browser Anda.
+  //       </p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-black text-white">
