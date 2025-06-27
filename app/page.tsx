@@ -15,40 +15,6 @@ import Particles from "./components/Particles/Particles";
 export default function Home() {
   const [isAllowed, setIsAllowed] = useState(true);
 
-  // useEffect(() => {
-  //   const checkScreen = () => {
-  //     const width = window.innerWidth;
-  //     const height = window.innerHeight;
-
-  //     if (width >= 768 || width > height) {
-  //       setIsAllowed(true);
-  //     } else {
-  //       setIsAllowed(false);
-  //     }
-  //   };
-
-  //   checkScreen();
-  //   window.addEventListener("resize", checkScreen);
-  //   window.addEventListener("orientationchange", checkScreen);
-
-  //   return () => {
-  //     window.removeEventListener("resize", checkScreen);
-  //     window.removeEventListener("orientationchange", checkScreen);
-  //   };
-  // }, []);
-
-  // if (!isAllowed) {
-  //   return (
-  //     <div className="flex flex-col justify-center items-center min-h-screen bg-black text-white p-4 text-center">
-  //       <h1 className="text-3xl font-bold mb-4">Akses Ditolak</h1>
-  //       <p className="text-lg">
-  //         Website ini hanya dapat dibuka menggunakan <strong>Mode Landscape</strong>,
-  //         atau <strong>Situs Desktop</strong> di browser Anda.
-  //       </p>
-  //     </div>
-  //   );
-  // }
-
   return (
     <div className="min-h-screen overflow-x-hidden bg-black text-white">
       {/* Background Squares */}
@@ -64,6 +30,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <div className="container mx-auto h-screen relative z-10">
+        {/* Overlay Gelap hanya untuk potrait */}
+        <div className="absolute inset-0 z-[5] bg-gradient-to-b from-black/80 via-black/60 to-transparent pointer-events-none block md:hidden"></div>
+
         <div className="grid grid-cols-12">
           {/* Lanyard sebagai background */}
           <div className="col-span-12 md:col-span-6 relative z-0">
@@ -90,17 +59,17 @@ export default function Home() {
                 />
               </div>
 
-             <div className="text-left w-full">
-  <SplitText
-    text="R BAGAS T.P"
-    className="text-4xl font-semibold !text-left !items-start !justify-start"
-    delay={50}
-    animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-    animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-    threshold={0.2}
-    rootMargin="-40px"
-  />
-</div>
+              <div className="text-left w-full">
+                <SplitText
+                  text="R BAGAS T.P"
+                  className="text-4xl font-semibold !text-left !items-start !justify-start"
+                  delay={50}
+                  animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                  animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                  threshold={0.2}
+                  rootMargin="-40px"
+                />
+              </div>
 
               <BlurText
                 text="Saya seorang Pelajar aktif yang sedang mengembangkan keterampilan di bidang Front-end Development. Saya memiliki pengalaman terbuka untuk Kelas Privat di Bidang Coding, Bisnis, dan Pengembangan lainnya."
