@@ -13,7 +13,23 @@ import Squares from "./components/Squares/Squares";
 import Particles from "./components/Particles/Particles";
 
 export default function Home() {
-  const [isAllowed, setIsAllowed] = useState(true);
+  const [isPortrait, setIsPortrait] = useState(false);
+
+  useEffect(() => {
+    const checkOrientation = () => {
+      const { innerWidth, innerHeight } = window;
+      setIsPortrait(innerHeight > innerWidth);
+    };
+
+    checkOrientation();
+    window.addEventListener("resize", checkOrientation);
+    window.addEventListener("orientationchange", checkOrientation);
+
+    return () => {
+      window.removeEventListener("resize", checkOrientation);
+      window.removeEventListener("orientationchange", checkOrientation);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-black text-white">
@@ -38,6 +54,10 @@ export default function Home() {
           <div className="col-span-12 md:col-span-6 relative z-0">
             <div className="absolute inset-0 flex justify-center items-start">
               <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
+              {/* Block interaksi jika potrait */}
+              {isPortrait && (
+                <div className="absolute inset-0 z-50 pointer-events-auto bg-transparent" />
+              )}
             </div>
           </div>
 
