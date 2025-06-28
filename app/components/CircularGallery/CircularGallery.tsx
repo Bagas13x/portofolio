@@ -505,51 +505,51 @@ class App {
   ) {
     const defaultItems = [
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "DayFit",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "Penerbangan Interaktif",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "Evil Twin",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "AI Assistant",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "Business Automation",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "DayFit",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "Penerbangan Interaktif",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "Evil Twin",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "AI Assistant",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "Business Automation",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "DayFit",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
+        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
         text: "Penerbangan Interaktif",
       },
     ];
