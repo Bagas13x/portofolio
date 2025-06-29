@@ -92,7 +92,7 @@ export default function Home() {
               </div>
 
               <BlurText
-                text="Saya seorang Pelajar aktif yang sedang mengembangkan keterampilan di bidang Front-end Development. Saya memiliki pengalaman terbuka untuk Kelas Privat di Bidang Coding, Bisnis, dan Pengembangan lainnya."
+                text="I'm a Front-End Developer in the Making Passionate About Tech, Teaching, and Building Digital Solutions."
                 delay={90}
                 animateBy="words"
                 direction="top"
@@ -140,11 +140,10 @@ export default function Home() {
             speed={0.5}
             scrambleChars=".:"
           >
-            Hai, Saya [Bagas] <br /><br />
-            Saya adalah seorang siswa di SMKN 2 Kota Bekasi, mengambil Jurusan Rekayasa Perangkat Lunak (RPL). 
-            Saya adalah pribadi yang suka berinteraksi, terbuka dengan hal-hal baru, dan punya semangat tinggi untuk terus belajar dan berkembang.
-            Saya juga punya hobi dalam Dunia Bisnis. Saat ini, saya sedang fokus membangun berbagai peluang usaha salah satunya adalah 
-            Bisnis Kelas Private dengan materi pembelajaran yang praktis, Layanan Digital, dan masih banyak lagi:
+            Hey, I'm [Bagas] <br /><br />
+           I'm a student at SMKN 2 Kota Bekasi, taking software engineering.
+I'm the type who loves socializing, always curious about new things, and got that strong drive to keep learning and growing.
+Lately, I’ve been into the business world too—currently focusing on building some side hustles, including a private class project that offers practical learning and digital service skills in a fun and chill way. 
           </ScrambledText>
         </div>
       </div>
