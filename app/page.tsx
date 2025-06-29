@@ -32,36 +32,28 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-black text-white">
-      {/* Background Squares */}
-      <div className="absolute top-0 right-0 left-0 bottom-0 w-full h-full z-0">
-        <Squares
-          speed={0.5}
-          squareSize={40}
-          direction='diagonal'
-          borderColor='#444A29'
-          hoverFillColor='#32CD32'
-        />
-      </div>
+    <div className="min-h-screen overflow-x-hidden bg-black text-white w-full relative">
+      {/* Hero Section Only: Squares */}
+      <div className="relative w-full h-screen z-10">
+        <div className="absolute top-0 left-0 w-full h-full z-0">
+          <Squares
+            speed={0.5}
+            squareSize={40}
+            direction='diagonal'
+            borderColor='#444A29'
+            hoverFillColor='#32CD32'
+          />
+        </div>
 
-      {/* Hero Section */}
-      <div className="container mx-auto h-screen relative z-10">
-        {/* Overlay Gelap hanya untuk potrait */}
-        <div className="absolute inset-0 z-[5] bg-gradient-to-b from-black/80 via-black/60 to-transparent pointer-events-none block md:hidden"></div>
-
-        <div className="grid grid-cols-12">
-          {/* Lanyard sebagai background */}
-          <div className="col-span-12 md:col-span-6 relative z-0">
+        <div className="grid grid-cols-12 w-full h-full">
+          <div className="col-span-12 md:col-span-6 relative z-10">
             <div className="absolute inset-0 flex justify-center items-start">
               <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
-              {/* Block interaksi jika potrait */}
               {isPortrait && (
                 <div className="absolute inset-0 z-50 pointer-events-auto bg-transparent" />
               )}
             </div>
           </div>
-
-          {/* Teks utama */}
           <div className="col-span-12 md:col-span-6 flex h-full relative z-10">
             <div className="flex flex-col gap-6 px-4 pt-12 md:pt-32">
               <div className="flex items-center gap-2">
@@ -103,57 +95,107 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Strip scroll */}
       <ScrollVelocity texts={['XXX - XXX - XXX -']} />
 
-      {/* Section: SIAPA SAYA */}
-      <div className="relative w-full min-h-screen">
-        <div className="absolute inset-0 w-full h-full z-0">
+      {/* SECTION: MY STORY to MARQUEE (Background Particles) */}
+      <div className="relative w-full z-10">
+        {/* Particles Behind */}
+        <div className="absolute inset-0 -z-10">
           <Particles
             particleColors={['#ffffff', '#ffffff']}
-            particleCount={400}
-            particleSpread={30}
+            particleCount={5000}
+            particleSpread={50}
             speed={0.1}
-            particleBaseSize={200}
+            particleBaseSize={400}
             moveParticlesOnHover={true}
-            alphaParticles={false}
+            alphaParticles={true}
             disableRotation={false}
           />
         </div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-10 space-y-10">
-          <ScrollFloat
-            animationDuration={4}
-            ease="back.inOut(2)"
-            scrollStart="center bottom+=50%"
-            scrollEnd="bottom bottom-=40%"
-            stagger={0.1}
-            textClassName="text-5xl md:text-7xl font-semibold text-white"
-          >
-            SIAPA SAYA
-          </ScrollFloat>
+        {/* Section: MY STORY */}
+        <div className="relative w-full min-h-screen">
+          <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-10 space-y-10">
+            <ScrollFloat
+              animationDuration={4}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.1}
+              textClassName="text-6xl md:text-7xl font-semibold text-white"
+            >
+              MY STORY
+            </ScrollFloat>
 
-          <ScrambledText
-            className="scrambled-text-demo text-base md:text-lg max-w-4xl text-white"
-            radius={100}
-            duration={1.2}
-            speed={0.5}
-            scrambleChars=".:"
-          >
-            Hey, I'm [Bagas] <br /><br />
-           I'm a student at SMKN 2 Kota Bekasi, taking software engineering.
-I'm the type who loves socializing, always curious about new things, and got that strong drive to keep learning and growing.
-Lately, I’ve been into the business world too—currently focusing on building some side hustles, including a private class project that offers practical learning and digital service skills in a fun and chill way. 
-          </ScrambledText>
+            <ScrambledText
+              className="scrambled-text-demo text-base md:text-lg max-w-4xl text-white"
+              radius={100}
+              duration={1.2}
+              speed={0.5}
+              scrambleChars=".:"
+            >
+              Hey, I'm [Bagas] <br /><br />
+              I'm a student at SMKN 2 Kota Bekasi, taking Software Engineering.
+              I'm the type who loves socializing, always curious about new things, and have a strong drive to keep learning and growing.
+              Lately, I’ve been into the business world too currently focusing on building some side hustles, including a private class project that offers practical learning and digital service skills in a fun and chill way.
+            </ScrambledText>
+          </div>
+        </div>
+
+        {/* Projek */}
+        <div className="w-full h-[600px] relative z-10">
+          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
+        </div>
+
+        {/* GLASSMORPH WRAPPER */}
+        <div className="w-full relative z-10 overflow-hidden bg-white/5 backdrop-blur-sm backdrop-saturate-150 border-t border-white/10 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
+          
+         {/* MARQUEE */}
+<div className="w-full py-6 overflow-hidden relative z-10">
+  <div
+    className="flex whitespace-nowrap animate-marquee gap-10 px-6 items-center"
+    style={{ animation: "marquee 25s linear infinite" }}
+  >
+    {[...Array(2)].map((_, i) => (
+      <div key={i} className="flex gap-10 items-center">
+        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
+        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
+        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
+        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
+        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
+        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+          {/* TEXT BAWAH */}
+          <div className="w-full py-12 px-6 flex justify-center">
+            <ScrambledText
+              className="scrambled-text-demo text-base md:text-lg max-w-4xl text-center text-white"
+              radius={100}
+              duration={1.2}
+              speed={0.5}
+              scrambleChars=".:"
+            >
+              Hey, I'm [Bagas] <br /><br />
+              I'm a student at SMKN 2 Kota Bekasi, taking Software Engineering.
+              I'm the type who loves socializing, always curious about new things, and have a strong drive to keep learning and growing.
+              Lately, I’ve been into the business world too currently focusing on building some side hustles, including a private class project that offers practical learning and digital service skills in a fun and chill way.
+            </ScrambledText>
+          </div>
+
+          <style>
+            {`
+              @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+            `}
+          </style>
         </div>
       </div>
-
-      {/* Projek */}
-      <ScrollVelocity texts={['', 'PROJEK']} />
-      <div style={{ height: '600px', position: 'relative' }}>
-        <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
-      </div>
-      <ScrollVelocity texts={['SOON']} />
     </div>
   );
 }

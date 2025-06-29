@@ -8,6 +8,8 @@ declare module 'meshline' {
   export const MeshLineMaterial: any;
 }
 
+
+
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -16,6 +18,7 @@ declare global {
     }
   }
 }
+
 
 - src/vite-env.d.ts
 /// <reference types="vite/client" />
