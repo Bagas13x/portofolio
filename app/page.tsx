@@ -33,8 +33,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-black text-white w-full relative">
-      {/* Hero Section Only: Squares */}
+
+      {/* HERO SECTION */}
       <div className="relative w-full h-screen z-10">
+        {/* Background Squares */}
         <div className="absolute top-0 left-0 w-full h-full z-0">
           <Squares
             speed={0.5}
@@ -45,8 +47,16 @@ export default function Home() {
           />
         </div>
 
-        <div className="grid grid-cols-12 w-full h-full">
-          <div className="col-span-12 md:col-span-6 relative z-10">
+        {/* Overlay Gelap FULL */}
+        <div
+          className="absolute top-0 left-0 w-full h-full z-[1] pointer-events-none
+                     bg-black/60"
+        />
+
+        {/* Hero Content */}
+        <div className="grid grid-cols-12 w-full h-full relative z-10">
+          {/* Kiri - Lanyard */}
+          <div className="col-span-12 md:col-span-6 relative">
             <div className="absolute inset-0 flex justify-center items-start">
               <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
               {isPortrait && (
@@ -54,8 +64,10 @@ export default function Home() {
               )}
             </div>
           </div>
-          <div className="col-span-12 md:col-span-6 flex h-full relative z-10">
-            <div className="flex flex-col gap-6 px-4 pt-12 md:pt-32">
+
+          {/* Kanan - Teks */}
+          <div className="col-span-12 md:col-span-6 flex h-full relative">
+            <div className={`flex flex-col gap-6 px-4 ${isPortrait ? 'pt-4' : 'md:pt-32 pt-12'}`}>
               <div className="flex items-center gap-2">
                 <RotatingText
                   texts={['Design', 'Coding', 'Business', 'Development']}
@@ -97,7 +109,7 @@ export default function Home() {
 
       <ScrollVelocity texts={['XXX - XXX - XXX -']} />
 
-      {/* SECTION: MY STORY to MARQUEE (Background Particles) */}
+      {/* SECTION: MY STORY + MARQUEE */}
       <div className="relative w-full z-10">
         {/* Particles Behind */}
         <div className="absolute inset-0 -z-10">
@@ -113,7 +125,7 @@ export default function Home() {
           />
         </div>
 
-        {/* Section: MY STORY */}
+        {/* MY STORY */}
         <div className="relative w-full min-h-screen">
           <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-10 space-y-10">
             <ScrollFloat
@@ -147,28 +159,27 @@ export default function Home() {
           <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
         </div>
 
-        {/* GLASSMORPH WRAPPER */}
+        {/* Glassmorph Marquee + Text */}
         <div className="w-full relative z-10 overflow-hidden bg-white/5 backdrop-blur-sm backdrop-saturate-150 border-t border-white/10 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
           
-         {/* MARQUEE */}
-<div className="w-full py-6 overflow-hidden relative z-10">
-  <div
-    className="flex whitespace-nowrap animate-marquee gap-10 px-6 items-center"
-    style={{ animation: "marquee 25s linear infinite" }}
-  >
-    {[...Array(2)].map((_, i) => (
-      <div key={i} className="flex gap-10 items-center">
-        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
-        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
-        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
-        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
-        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
-        <span className="text-white text-2xl font-medium tracking-widest">MOJAVE</span>
-      </div>
-    ))}
-  </div>
-</div>
-
+          {/* MARQUEE */}
+          <div className="w-full py-6 overflow-hidden relative z-10">
+            <div
+              className="flex whitespace-nowrap animate-marquee gap-10 px-6 items-center"
+              style={{ animation: "marquee 25s linear infinite" }}
+            >
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex gap-10 items-center">
+                  <span className="text-white text-2xl font-medium tracking-widest">CRAIJSX</span>
+                  <span className="text-white text-2xl font-medium tracking-widest">DAYFIT</span>
+                  <span className="text-white text-2xl font-medium tracking-widest">DAYCO</span>
+                  <span className="text-white text-2xl font-medium tracking-widest">GADEV</span>
+                  <span className="text-white text-2xl font-medium tracking-widest">CRAIJSX</span>
+                  <span className="text-white text-2xl font-medium tracking-widest">DAYFIT</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* TEXT BAWAH */}
           <div className="w-full py-12 px-6 flex justify-center">
@@ -179,10 +190,9 @@ export default function Home() {
               speed={0.5}
               scrambleChars=".:"
             >
-              Hey, I'm [Bagas] <br /><br />
-              I'm a student at SMKN 2 Kota Bekasi, taking Software Engineering.
-              I'm the type who loves socializing, always curious about new things, and have a strong drive to keep learning and growing.
-              Lately, I’ve been into the business world too currently focusing on building some side hustles, including a private class project that offers practical learning and digital service skills in a fun and chill way.
+              [ Sorry ] <br/><br/>
+              This website’s still a work in progress (just adding stuff)
+              <br/>kinda like an unfinished portfolio.
             </ScrambledText>
           </div>
 
