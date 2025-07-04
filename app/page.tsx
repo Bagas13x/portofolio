@@ -132,7 +132,7 @@ export default function Home() {
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.1}
-              textClassName="text-6xl md:text-7xl font-semibold text-white"
+              textClassName="text-5xl md:text-5xl font-semibold text-white"
             >
               MY STORY
             </ScrollFloat>
@@ -149,6 +149,19 @@ export default function Home() {
               I'm the type who loves socializing, always curious about new things, and have a strong drive to keep learning and growing.
               Lately, I’ve been into the business world too currently focusing on building some side hustles, including a private class project that offers practical learning and digital service skills in a fun and chill way.
             </ScrambledText>
+
+         <ScrambledText
+  className="scrambled-text-demo text-base md:text-lg max-w-6xl text-white"
+  radius={100}
+  duration={1.2}
+  speed={0.5}
+  scrambleChars=".:"
+>
+  <br /><br /><br /><br />
+  <span className="text-4xl md:text-4xl font-bold text-white">LIVE PROJECT</span>
+</ScrambledText>
+
+            
           </div>
         </div>
 
