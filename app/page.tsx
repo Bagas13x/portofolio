@@ -11,9 +11,11 @@ import ScrambledText from './components/ScrambledText/ScrambledText';
 import CircularGallery from './components/CircularGallery/CircularGallery';
 import Squares from "./components/Squares/Squares";
 import Particles from "./components/Particles/Particles";
+import Marquee from "react-fast-marquee";
 
 export default function Home() {
   const [isPortrait, setIsPortrait] = useState(false);
+  const [activeTab, setActiveTab] = useState("project");
 
   useEffect(() => {
     const checkOrientation = () => {
@@ -31,41 +33,39 @@ export default function Home() {
     };
   }, []);
 
+  const projects = [...Array(6)].map((_, i) => ({
+    title: `Project ${i + 1}`,
+    image: `/your-images/project-${i + 1}.jpg`,
+    description: "Pemula ey"
+  }));
+
+  const certificates = [...Array(6)].map((_, i) => ({
+    title: `Certificate ${i + 1}`,
+    image: `/your-images/certificate-${i + 1}.jpg`,
+    description: "Gabutan ey"
+  }));
+
+  const galleryItems = activeTab === "project" ? projects : certificates;
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-black text-white w-full relative">
 
       {/* HERO SECTION */}
       <div className="relative w-full h-screen z-10">
-        {/* Background Squares */}
         <div className="absolute top-0 left-0 w-full h-full z-0">
-          <Squares
-            speed={0.5}
-            squareSize={40}
-            direction='diagonal'
-            borderColor='#444A29'
-            hoverFillColor='#32CD32'
-          />
+          <Squares speed={0.5} squareSize={40} direction='diagonal' borderColor='#444A29' hoverFillColor='#32CD32' />
         </div>
 
-        {/* Overlay Gelap FULL */}
-        <div
-          className="absolute top-0 left-0 w-full h-full z-[1] pointer-events-none
-                     bg-black/60"
-        />
+        <div className="absolute top-0 left-0 w-full h-full z-[1] pointer-events-none bg-black/60" />
 
-        {/* Hero Content */}
         <div className="grid grid-cols-12 w-full h-full relative z-10">
-          {/* Kiri - Lanyard */}
           <div className="col-span-12 md:col-span-6 relative">
             <div className="absolute inset-0 flex justify-center items-start">
               <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
-              {isPortrait && (
-                <div className="absolute inset-0 z-50 pointer-events-auto bg-transparent" />
-              )}
+              {isPortrait && <div className="absolute inset-0 z-50 pointer-events-auto bg-transparent" />}
             </div>
           </div>
 
-          {/* Kanan - Teks */}
           <div className="col-span-12 md:col-span-6 flex h-full relative">
             <div className={`flex flex-col gap-6 px-4 ${isPortrait ? 'pt-4' : 'md:pt-32 pt-12'}`}>
               <div className="flex items-center gap-2">
@@ -109,9 +109,8 @@ export default function Home() {
 
       <ScrollVelocity texts={['XXX - XXX - XXX -']} />
 
-      {/* SECTION: MY STORY + MARQUEE */}
+      {/* STORY */}
       <div className="relative w-full z-10">
-        {/* Particles Behind */}
         <div className="absolute inset-0 -z-10">
           <Particles
             particleColors={['#ffffff', '#ffffff']}
@@ -125,7 +124,6 @@ export default function Home() {
           />
         </div>
 
-        {/* MY STORY */}
         <div className="relative w-full min-h-screen">
           <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 py-10 space-y-10">
             <ScrollFloat
@@ -140,7 +138,7 @@ export default function Home() {
             </ScrollFloat>
 
             <ScrambledText
-              className="scrambled-text-demo text-base md:text-lg max-w-4xl text-white"
+              className="scrambled-text-demo text-base md:text-lg max-w-8xl text-white"
               radius={100}
               duration={1.2}
               speed={0.5}
@@ -154,56 +152,64 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Projek */}
         <div className="w-full h-[600px] relative z-10">
           <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
         </div>
 
-        {/* Glassmorph Marquee + Text */}
-        <div className="w-full relative z-10 overflow-hidden bg-white/5 backdrop-blur-sm backdrop-saturate-150 border-t border-white/10 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
-          
-          {/* MARQUEE */}
-          <div className="w-full py-6 overflow-hidden relative z-10">
-            <div
-              className="flex whitespace-nowrap animate-marquee gap-10 px-6 items-center"
-              style={{ animation: "marquee 25s linear infinite" }}
-            >
-              {[...Array(2)].map((_, i) => (
-                <div key={i} className="flex gap-10 items-center">
-                  <span className="text-white text-2xl font-medium tracking-widest">CRAIJSX</span>
-                  <span className="text-white text-2xl font-medium tracking-widest">DAYFIT</span>
-                  <span className="text-white text-2xl font-medium tracking-widest">DAYCO</span>
-                  <span className="text-white text-2xl font-medium tracking-widest">GADEV</span>
-                  <span className="text-white text-2xl font-medium tracking-widest">CRAIJSX</span>
-                  <span className="text-white text-2xl font-medium tracking-widest">DAYFIT</span>
+        {/* GLASSMARQUEE */}
+        <div className="w-full relative z-10 overflow-hidden bg-white/5 backdrop-blur-md backdrop-saturate-150 border-t border-white/10 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
+          <Marquee
+  speed={50}
+  delay={0}
+  loop={0}
+  direction="right"
+  pauseOnHover={true}
+  pauseOnClick={false}
+ 
+  
+
+  className="py-6 px-4 gap-10 text-white text-2xl font-medium tracking-widest"
+>
+  <span className="mx-6">CRAIJSX</span>
+  <span className="mx-6">DAYFIT</span>
+  <span className="mx-6">DAYCO</span>
+  <span className="mx-6">GADEV</span>
+  <span className="mx-6">CRAIJSX</span>
+  <span className="mx-6">DAYFIT</span>
+</Marquee>
+
+
+          {/* PROJECT & CERTIFICATE SECTION */}
+          <div className="py-20 px-4 w-full z-10 relative">
+            <div className="text-center mb-10">
+              <h2 className="text-5xl font-bold">
+                <span className="text-white">Project</span> <span className="text-white">&</span> <span className="text-white">Certificate</span>
+              </h2>
+              <p className="mt-4 text-gray-400 text-lg">One more project completed, one more proof that I can do this.</p>
+              <p className="text-gray-500">More project are coming soon.</p>
+            </div>
+
+            <div className="flex justify-center gap-4 flex-wrap mb-12">
+              <button onClick={() => setActiveTab("project")} className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === "project" ? "bg-green-400 text-black" : "bg-white/10 text-white border border-white/10"}`}>
+                Project
+              </button>
+              <button onClick={() => setActiveTab("certificate")} className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === "certificate" ? "bg-green-400 text-black" : "bg-white/10 text-white border border-white/10"}`}>
+                Certificate
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+              {galleryItems.map((item, index) => (
+                <div key={index} className="bg-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg hover:shadow-green-400/40 transition-shadow">
+                  <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
+                    <p className="text-sm text-gray-300">{item.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* TEXT BAWAH */}
-          <div className="w-full py-12 px-6 flex justify-center">
-            <ScrambledText
-              className="scrambled-text-demo text-base md:text-lg max-w-4xl text-center text-white"
-              radius={100}
-              duration={1.2}
-              speed={0.5}
-              scrambleChars=".:"
-            >
-              [ Sorry ] <br/><br/>
-              This website’s still a work in progress (just adding stuff)
-              <br/>kinda like an unfinished portfolio.
-            </ScrambledText>
-          </div>
-
-          <style>
-            {`
-              @keyframes marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-              }
-            `}
-          </style>
         </div>
       </div>
     </div>

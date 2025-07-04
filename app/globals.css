@@ -83,4 +83,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+/* Sembunyikan scrollbar horizontal */
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+body {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+  overflow-x: hidden;           /* Ini yang penting */
+}
 

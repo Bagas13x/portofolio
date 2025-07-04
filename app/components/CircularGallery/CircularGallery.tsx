@@ -537,7 +537,7 @@ class App {
   ) {
     const defaultItems = [
       {
-        image: `https://files.catbox.moe/4foh56.mp4`,
+        image: `/dayfit.mp4`,
         text: "DayFit",
       },
       {
@@ -557,7 +557,7 @@ class App {
         text: "Business Automation",
       },
       {
-        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
+        image: `/dayfit.mp4`,
         text: "DayFit",
       },
       {
@@ -577,7 +577,7 @@ class App {
         text: "Business Automation",
       },
       {
-        image: `https://ik.imagekit.io/dnp6v4qkn/soon.jpg?updatedAt=1751079896896`,
+        image: `/dayfit.mp4`,
         text: "DayFit",
       },
       {
