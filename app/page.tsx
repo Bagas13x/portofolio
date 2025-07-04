@@ -49,16 +49,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-black text-white w-full relative">
-
       {/* HERO SECTION */}
       <div className="relative w-full h-screen z-10">
         <div className="absolute top-0 left-0 w-full h-full z-0">
           <Squares speed={0.5} squareSize={40} direction='diagonal' borderColor='#444A29' hoverFillColor='#32CD32' />
         </div>
-
         <div className="absolute top-0 left-0 w-full h-full z-[1] pointer-events-none bg-black/60" />
 
         <div className="grid grid-cols-12 w-full h-full relative z-10">
+          {/* Lanyard */}
           <div className="col-span-12 md:col-span-6 relative">
             <div className="absolute inset-0 flex justify-center items-start">
               <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
@@ -66,9 +65,15 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Teks */}
           <div className="col-span-12 md:col-span-6 flex h-full relative">
-            <div className={`flex flex-col gap-6 px-4 ${isPortrait ? 'pt-4' : 'md:pt-32 pt-12'}`}>
-              <div className="flex items-center gap-2">
+            <div className={`flex flex-col gap-6 px-4 w-full ${isPortrait ? 'pt-4 relative' : 'md:pt-32 pt-12'}`}>
+              {/* Overlay hitam khusus HP */}
+              {isPortrait && (
+                <div className="absolute inset-0 bg-black/60 z-0 rounded-xl" />
+              )}
+
+              <div className="relative z-10 flex items-center gap-2">
                 <RotatingText
                   texts={['Design', 'Coding', 'Business', 'Development']}
                   mainClassName="px-2 bg-[#32CD32] text-black overflow-hidden py-1 justify-center rounded-lg text-2xl font-bold inline-flex transition-all"
@@ -83,7 +88,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="text-left w-full">
+              <div className="relative z-10 text-left w-full">
                 <SplitText
                   text="R BAGAS T.P"
                   className="text-4xl font-semibold !text-left !items-start !justify-start"
@@ -95,13 +100,15 @@ export default function Home() {
                 />
               </div>
 
-              <BlurText
-                text="I'm a Front-End Developer in the Making Passionate About Tech, Teaching, and Building Digital Solutions."
-                delay={90}
-                animateBy="words"
-                direction="top"
-                className="text-xl mb-8"
-              />
+              <div className="relative z-10">
+                <BlurText
+                  text="I'm a Front-End Developer in the Making Passionate About Tech, Teaching, and Building Digital Solutions."
+                  delay={90}
+                  animateBy="words"
+                  direction="top"
+                  className="text-xl mb-8"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -109,7 +116,7 @@ export default function Home() {
 
       <ScrollVelocity texts={['XXX - XXX - XXX -']} />
 
-      {/* STORY */}
+      {/* STORY SECTION */}
       <div className="relative w-full z-10">
         <div className="absolute inset-0 -z-10">
           <Particles
@@ -150,18 +157,15 @@ export default function Home() {
               Lately, I’ve been into the business world too currently focusing on building some side hustles, including a private class project that offers practical learning and digital service skills in a fun and chill way.
             </ScrambledText>
 
-         <ScrambledText
-  className="scrambled-text-demo text-base md:text-lg max-w-6xl text-white"
-  radius={100}
-  duration={1.2}
-  speed={0.5}
-  scrambleChars=".:"
->
-  <br /><br /><br /><br />
-  <span className="text-4xl md:text-4xl font-bold text-white">LIVE PROJECT</span>
-</ScrambledText>
-
-            
+            <ScrambledText
+              className="scrambled-text-demo text-4xl md:text-4xl font-bold text-white mt-10"
+              radius={100}
+              duration={1.2}
+              speed={0.5}
+              scrambleChars=".:"
+            >
+              [ LIVE PROJECT ]
+            </ScrambledText>
           </div>
         </div>
 
@@ -172,25 +176,21 @@ export default function Home() {
         {/* GLASSMARQUEE */}
         <div className="w-full relative z-10 overflow-hidden bg-white/5 backdrop-blur-md backdrop-saturate-150 border-t border-white/10 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
           <Marquee
-  speed={50}
-  delay={0}
-  loop={0}
-  direction="right"
-  pauseOnHover={true}
-  pauseOnClick={false}
- 
-  
-
-  className="py-6 px-4 gap-10 text-white text-2xl font-medium tracking-widest"
->
-  <span className="mx-6">CRAIJSX</span>
-  <span className="mx-6">DAYFIT</span>
-  <span className="mx-6">DAYCO</span>
-  <span className="mx-6">GADEV</span>
-  <span className="mx-6">CRAIJSX</span>
-  <span className="mx-6">DAYFIT</span>
-</Marquee>
-
+            speed={50}
+            delay={0}
+            loop={0}
+            direction="right"
+            pauseOnHover={true}
+            pauseOnClick={false}
+            className="py-6 px-4 gap-10 text-white text-2xl font-medium tracking-widest"
+          >
+            <span className="mx-6">CRAIJSX</span>
+            <span className="mx-6">DAYFIT</span>
+            <span className="mx-6">DAYCO</span>
+            <span className="mx-6">GADEV</span>
+            <span className="mx-6">CRAIJSX</span>
+            <span className="mx-6">DAYFIT</span>
+          </Marquee>
 
           {/* PROJECT & CERTIFICATE SECTION */}
           <div className="py-20 px-4 w-full z-10 relative">
