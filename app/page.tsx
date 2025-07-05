@@ -52,18 +52,19 @@ export default function Home() {
   const galleryItems = activeTab === "project" ? projects : certificates;
 
   const cardFade = {
-    hidden: { opacity: 0, y: 20, filter: "blur(12px)" },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 1.2,
-        delay: i * 0.2,
-        ease: "easeOut",
-      },
-    }),
-  };
+  hidden: { opacity: 0, y: 20, filter: "blur(12px)" },
+  visible: (i: number): any => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1.2,
+      delay: i * 0.2,
+      ease: [0.25, 0.1, 0.25, 1], // FIXED!
+    },
+  }),
+};
+
 
   const infoCards = [
     { label: "Born In", value: "Indonesia" },
@@ -233,6 +234,11 @@ export default function Home() {
             <span className="mx-6">DAYFIT</span>
             <span className="mx-6">DAYCO</span>
             <span className="mx-6">GADEV</span>
+             <span className="mx-6">CRAIJSX</span>
+              <span className="mx-6">DAYFIT</span>
+            <span className="mx-6">DAYCO</span>
+            <span className="mx-6">GADEV</span>
+            <span className="mx-6">CRAIJSX</span>
           </Marquee>
 
           {/* PROJECT & CERTIFICATE */}
