@@ -111,7 +111,7 @@ export default function Home() {
               <div className="relative z-10 text-left w-full">
                 <SplitText
                  text="R BAGAS T.P"
-  className="text-3xl sm:text-4xl md:text-7xl font-bold !text-left !items-start !justify-start"
+  className="text-5xl sm:text-5xl md:text-7xl font-bold !text-left !items-start !justify-start"
                   delay={50}
                   animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
                   animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
@@ -183,7 +183,7 @@ export default function Home() {
               scrollStart="center bottom+=50%"
               scrollEnd="bottom bottom-=40%"
               stagger={0.1}
-              textClassName="text-3xl sm:text-4xl md:text-5xl font-semibold text-white"
+              textClassName="text-5xl sm:text-5xl md:text-5xl font-semibold text-white"
 
             >
               MY STORY
@@ -202,17 +202,17 @@ export default function Home() {
               Lately, I’ve been into the business world too currently focusing on building some side hustles, including a private class project that offers practical learning and digital service skills in a fun and chill way.
             </ScrambledText>
 
-            <ScrambledText
-              className="scrambled-text-demo text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-10"
+         <ScrambledText
+  className="scrambled-text-demo text-5xl sm:text-5xl md:text-5xl font-bold text-white mt-10"
+  radius={100}
+  duration={1.2}
+  speed={0.5}
+  scrambleChars=".:"
+>
+  <div id="live">LIVE PROJECT</div>
+  <p className="mt-3 text-gray-400 text-lg">Still Progress</p>
+</ScrambledText>
 
-              radius={100}
-              duration={1.2}
-              speed={0.5}
-              scrambleChars=".:"
-            >
-              LIVE PROJECT
-              <p className="mt-4 text-gray-400 text-lg">More Video Project still Progress</p>
-            </ScrambledText>
           </div>
         </div>
 
@@ -258,49 +258,52 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-              {galleryItems.map((item, index) => (
-                <motion.div
-                  key={index}
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={cardFade}
-                  className="bg-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg hover:shadow-green-400/40 transition-shadow"
-                >
-                  <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
-                  <div className="p-4">
-                    <h3 className="text-xl font-semibold">{item.title}</h3>
-                    <p className="text-sm text-gray-300">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4 w-full">
+  {infoCards.map((item, index) => (
+    <motion.div
+      key={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
+      variants={{
+        hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+        visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+      }}
+      className="group bg-white/5 border border-white/10 rounded-lg p-4 text-center backdrop-blur-md shadow-md transition duration-300"
+    >
+      <div className="absolute inset-0 bg-green-300/10 rounded-lg opacity-0 group-hover:opacity-50 transition duration-300 pointer-events-none" />
+      <p className="text-sm text-gray-300 relative z-10 whitespace-nowrap">{item.label}</p>
+      <p className="text-base sm:text-lg font-semibold text-white mt-1 relative z-10 break-words">{item.value}</p>
+    </motion.div>
+  ))}
+</div>
+
           </div>
         </div>
       </div>
 
-      {/* ✅ BOTTOM NAVBAR MELENGKUNG FIXED */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
-       <div className="bg-white/10 backdrop-blur-md border border-white/20 shadow-lg 
-  px-8 py-3 flex gap-8 items-center justify-center 
+{/* ✅ BOTTOM NAVBAR MELENGKUNG FIXED */}
+<div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+  <div className="bg-white/10 backdrop-blur-md border border-white/20 shadow-lg 
+  px-8 py-3 flex gap-6 sm:gap-8 items-center justify-center 
   text-white text-base sm:text-lg font-semibold 
   rounded-full transition-all duration-300">
-          {['home', 'story', 'project'].map((id, i) => (
-            <motion.button
-              key={id}
-              onClick={() => scrollToSection(id)}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2, duration: 0.4 }}
-              className="capitalize hover:text-green-300 transition"
-            >
-              {id}
-            </motion.button>
-          ))}
-        </div>
-      </div>
+    {['home', 'story', 'live', 'project'].map((id, i) => (
+      <motion.button
+        key={id}
+        onClick={() => scrollToSection(id)}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: i * 0.2, duration: 0.4 }}
+        className="capitalize hover:text-green-300 transition"
+      >
+        {id}
+      </motion.button>
+    ))}
+  </div>
+</div>
+
     </div>
   );
 }
