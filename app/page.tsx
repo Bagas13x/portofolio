@@ -67,9 +67,9 @@ export default function Home() {
 
 
   const infoCards = [
-    { label: "Born In", value: "Indonesia" },
+    { label: "Born In", value: "ID" },
     { label: "Experience", value: "6 Years" },
-    { label: "Date of Birth", value: "13 Nov 2007" },
+    { label: "Date of Birth", value: "13/11/2007" },
   ];
 
   return (
